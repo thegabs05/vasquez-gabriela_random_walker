@@ -1,7 +1,72 @@
+//let posX;
+//let posY;
+//const vel = 3;
+let w1;
+let w2;
+let w3;
+let w4;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  w1 = new Walker(windowWidth / 2, windowHeight / 2);
+  w2 = new Walker(windowWidth / 2, windowHeight / 2);
+  w3 = new Walker(windowWidth / 2, windowHeight / 2);
+  w4 = new Walker(windowWidth / 2, windowHeight / 2);
+  //posX = windowWidth / 2;
+  //posY = windowHeight / 2;
 }
 
 function draw() {
-  circle(mouseX, mouseY, 20);
+  w1.update();
+  w1.display();
+
+  w2.update();
+  w2.display();
+
+  w3.update();
+  w3.display();
+
+  w4.update();
+  w4.display();
+
+  //background(255);
+  //update();
+  //fill(0);
+  //stroke(255, 50);
+  //strokeWeight(3);
+  //circle(posX, posY, 10);
+}
+
+//function update() {
+//posX += random(-vel, vel);
+// posY += random(-vel, vel);
+//}
+
+class Walker {
+  constructor(_posX, _posY) {
+    this.posX = _posX;
+    this.posY = _posY;
+    this.vel = random(1, 8);
+    this.color = color(random(55, 250), random(120, 220), 255, 150);
+    this.esCirculo = random() > 0.5 ? true : false;
+  }
+
+  update() {
+    this.posX += random(-this.vel, this.vel);
+    this.posY += random(-this.vel, this.vel);
+  }
+
+  display() {
+    fill(this.color);
+
+    if (this.esCirculo > 0.5) {
+      stroke(255, 50);
+      strokeWeight(3);
+      circle(this.posX, this.posY, 10);
+    } else {
+      stroke(255, 50);
+      strokeWeight(3);
+      rect(this.posX, this.posY, 15, 15);
+    }
+  }
 }
