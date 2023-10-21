@@ -1,6 +1,3 @@
-//let posX;
-//let posY;
-//const vel = 3;
 let w1;
 let w2;
 let w3;
@@ -12,8 +9,6 @@ function setup() {
   w2 = new Walker(windowWidth / 2, windowHeight / 2);
   w3 = new Walker(windowWidth / 2, windowHeight / 2);
   w4 = new Walker(windowWidth / 2, windowHeight / 2);
-  //posX = windowWidth / 2;
-  //posY = windowHeight / 2;
 }
 
 function draw() {
@@ -28,19 +23,7 @@ function draw() {
 
   w4.update();
   w4.display();
-
-  //background(255);
-  //update();
-  //fill(0);
-  //stroke(255, 50);
-  //strokeWeight(3);
-  //circle(posX, posY, 10);
 }
-
-//function update() {
-//posX += random(-vel, vel);
-// posY += random(-vel, vel);
-//}
 
 class Walker {
   constructor(_posX, _posY) {
